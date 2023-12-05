@@ -54,7 +54,7 @@ durations, affectations = generate_taillard(n_jobs, n_machines, seed=0)
 solver = Solver(durations, affectations, heuristic="MOPNR")
 schedule = solver.solve()
 
-rng = np.random.default_rng(seed)
+rng = np.random.default_rng(0)
 new_durations = durations + rng.integers(-10, 10, size=(n_jobs, n_machines))
 new_durations[new_durations <= 0] = 1
 new_schedule = reschedule(new_durations, affectations, schedule)
