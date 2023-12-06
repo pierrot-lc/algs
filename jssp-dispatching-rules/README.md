@@ -66,6 +66,9 @@ is optimal for the given tasks order.
 
 ## Sources
 
+The code was originally written by me for [Wheatley](https://github.com/jolibrain/wheatley),
+a RL planning algorithm using GNNs to solve JSSP and other related problems.
+
 Dispatching rules based solver is presented in the paper
 [Priority dispatching rules in a fabrication/assembly shop (1990)](https://www.sciencedirect.com/science/article/pii/089571779090372T).
 
