@@ -198,9 +198,17 @@ def is_group_one_stable(group_1: Group, group_2: Group) -> bool:
 
 
 if __name__ == "__main__":
-    for _ in range(100):
+    group_1_matches = []
+    group_2_matches = []
+    for _ in range(1000):
         group_1, group_2 = solve_gale_shapley(50, 50)
         assert np.all(group_1.matched), "Not all persons in G1 have a match."
         assert np.all(group_2.matched), "Not all persons in G2 have a match."
         assert is_group_one_stable(group_1, group_2), "Matches of G1 are not stable."
         assert is_group_one_stable(group_2, group_1), "Matches of G2 are not stable."
+
+        group_1_matches.append(group_1.current_matches)
+        group_2_matches.append(group_2.current_matches)
+
+    print("Group 1:", np.mean(np.array(group_1_matches)))
+    print("Group 2:", np.mean(np.array(group_2_matches)))
